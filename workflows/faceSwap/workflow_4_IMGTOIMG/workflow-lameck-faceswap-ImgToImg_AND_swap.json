@@ -1,0 +1,971 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 28,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "Reroute",
+      "pos": [
+        1319,
+        10
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 5,
+      "type": "Efficient Loader",
+      "pos": [
+        1817,
+        663
+      ],
+      "size": {
+        "0": 440.8734130859375,
+        "1": 527.074462890625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": 10
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 9,
+          "widget": {
+            "name": "positive"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Efficient Loader"
+      },
+      "widgets_values": [
+        "epicrealism_naturalSinRC1VAE.safetensors",
+        "vae-ft-mse-840000-ema-pruned.safetensors",
+        -1,
+        "None",
+        1,
+        1,
+        "CLIP_POSITIVE",
+        "",
+        "none",
+        "comfy",
+        1024,
+        1024,
+        1
+      ],
+      "color": "#571a1a",
+      "bgcolor": "#6b2e2e",
+      "shape": 1
+    },
+    {
+      "id": 2,
+      "type": "CR Multi-ControlNet Stack",
+      "pos": [
+        1334.6667242585934,
+        140.76411280344772
+      ],
+      "size": {
+        "0": 418.1999816894531,
+        "1": 454
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "controlnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROLNET_STACK",
+          "type": "CONTROL_NET_STACK",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Multi-ControlNet Stack"
+      },
+      "widgets_values": [
+        "On",
+        "diffusion_pytorch_model.fp16.bin",
+        0.9,
+        0,
+        1,
+        "Off",
+        "control_v11p_sd15_openpose.pth",
+        0.5,
+        0.1,
+        0.5,
+        "Off",
+        "None",
+        1,
+        0,
+        1
+      ],
+      "color": "#43571a",
+      "bgcolor": "#576b2e"
+    },
+    {
+      "id": 7,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 2720,
+        "1": 139,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 529.0743408203125,
+        "1": 475.46856689453125
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 18,
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 17,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/view?filename=rgthree.compare._temp_ujstz_00001_.png&type=temp&subfolder=&rand=0.8276666171986178"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/view?filename=rgthree.compare._temp_ujstz_00002_.png&type=temp&subfolder=&rand=0.7439268820096971"
+          }
+        ]
+      ],
+      "color": "#1a5757",
+      "bgcolor": "#2e6b6b"
+    },
+    {
+      "id": 17,
+      "type": "SaveImage",
+      "pos": [
+        2724,
+        663
+      ],
+      "size": {
+        "0": 517.2794799804688,
+        "1": 515.8169555664062
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        2281,
+        144
+      ],
+      "size": {
+        "0": 418.0629577636719,
+        "1": 1047.6334228515625
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 4
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 8
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17,
+            22,
+            25
+          ],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        97512349028258,
+        null,
+        8,
+        2,
+        "dpmpp_2m",
+        "karras",
+        1,
+        "auto",
+        "true"
+      ],
+      "color": "#57571a",
+      "bgcolor": "#6b6b2e",
+      "shape": 1
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        3299,
+        95
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "perfil (30).png",
+        "image"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "SaveImage",
+      "pos": [
+        3291,
+        458
+      ],
+      "size": {
+        "0": 732.2352905273438,
+        "1": 776.72705078125
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 27
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "OpenposePreprocessor",
+      "pos": [
+        1338.6667242585934,
+        650.7641128034477
+      ],
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20,
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "POSE_KEYPOINT",
+          "type": "POSE_KEYPOINT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OpenposePreprocessor"
+      },
+      "widgets_values": [
+        "enable",
+        "enable",
+        "enable",
+        1024
+      ]
+    },
+    {
+      "id": 15,
+      "type": "LoadImage",
+      "pos": [
+        700.5820434096704,
+        131.69136875025578
+      ],
+      "size": {
+        "0": 620.3751831054688,
+        "1": 700.9155883789062
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "rendernet_image (1) (5).png",
+        "image"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        3636,
+        70
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 25,
+          "slot_index": 0
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 24,
+          "slot_index": 1
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 23,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "codeformer-v0.1.0.pth",
+        1,
+        0.5,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "type": "Reroute",
+      "pos": [
+        2997,
+        8
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            18,
+            28
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 4,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        1808,
+        135
+      ],
+      "size": {
+        "0": 448.31451416015625,
+        "1": 479.8132629394531
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "A stunning model confidently walks down the runway during a fashion show, showcasing an elegant and sophisticated outfit. She is wearing a white dress with a minimalist design, made of a lightweight and flowing fabric that elegantly drapes over her body. The dress is long, almost reaching the ankles, and features clean lines and a perfect fit that highlights her silhouette. She complements the dress with gray high-heeled shoes, adding a touch of sophistication to her overall look. Her hair is long, straight, and loose, falling naturally over her shoulders, and her makeup is subtle and elegant, enhancing her facial features in a natural way.\n\nThe model is striding confidently on a well-lit runway, with a clear floor that further accentuates her presence. The audience is seated on either side of the runway, composed of well-dressed individuals, likely fashion critics, buyers, and other industry professionals. They are attentively watching the show, with some capturing the moment on their smartphones. The lighting is bright and even, designed to highlight the details of the dress and the model as she walks. The backdrop of the runway is simple and neutral, ensuring that all attention is focused on the model and her stunning outfit.",
+        "low quality, blurry, deformed hands, deformed faces, bad anatomy, extra limbs, extra fingers, poorly drawn hands, poorly drawn face, mutated hands, mutated face, disfigured, distorted, low resolution, cropped hands, cropped face, missing limbs, incoherent background, low detail, bad proportions, bad composition, artifacts, pixelated, JPEG artifacts\n",
+        "sai-photographic",
+        false,
+        false,
+        true
+      ],
+      "color": "#1a4357",
+      "bgcolor": "#2e576b"
+    },
+    {
+      "id": 19,
+      "type": "ReActorLoadFaceModel",
+      "pos": [
+        3113,
+        -116
+      ],
+      "size": {
+        "0": 397.000244140625,
+        "1": 96.60001373291016
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            23
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorLoadFaceModel"
+      },
+      "widgets_values": [
+        "Liat - Face Model Instagram.safetensors"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        4195,
+        22
+      ],
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      5,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      5,
+      5,
+      1,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      5,
+      2,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      5,
+      3,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      8,
+      5,
+      4,
+      6,
+      4,
+      "VAE"
+    ],
+    [
+      9,
+      4,
+      0,
+      5,
+      2,
+      "STRING"
+    ],
+    [
+      10,
+      2,
+      0,
+      5,
+      1,
+      "CONTROL_NET_STACK"
+    ],
+    [
+      12,
+      8,
+      0,
+      9,
+      0,
+      "*"
+    ],
+    [
+      17,
+      6,
+      5,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      9,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      15,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      16,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      16,
+      0,
+      8,
+      0,
+      "*"
+    ],
+    [
+      22,
+      6,
+      5,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      19,
+      0,
+      18,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      24,
+      20,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      25,
+      6,
+      5,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      18,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      9,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Pose Editor & ControlNet",
+      "bounding": [
+        671,
+        48,
+        1109,
+        1185
+      ],
+      "color": "#3f789e",
+      "font_size": 24
+    },
+    {
+      "title": "Prompt & Output",
+      "bounding": [
+        1789,
+        52,
+        1491,
+        1180
+      ],
+      "color": "#3f789e",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5209868481924373,
+      "offset": {
+        "0": -1602.5677263444052,
+        "1": -185.9954229844672
+      }
+    }
+  },
+  "version": 0.4
+}
