@@ -1,6 +1,6 @@
 # YouTube Playlist Creator API
 
-Esta API permite criar playlists no YouTube com base em palavras-chave. Você pode enviar uma lista de palavras-chave, e a API buscará vídeos relacionados no YouTube e criará uma playlist automaticamente no seu canal.
+Esta API permite criar playlists no YouTube com base em palavras-chave. Você pode enviar uma lista de palavras-chave, e a API buscará vídeos relacionados no YouTube e criará uma playlist automaticamente no seu canal. Liat é condigurada para acessar a api.
 
 ## Requisitos
 
