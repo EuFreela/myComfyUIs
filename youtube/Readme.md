@@ -17,7 +17,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 Clone este repositório em sua máquina local:
 
 ```bash
-git clone https://github.com/seu_usuario/youtube-playlist-creator.git
+git clone [.git]
 cd youtube-playlist-creator
 ```
 
